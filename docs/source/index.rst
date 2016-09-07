@@ -1,9 +1,4 @@
-.. Quantiacs Python documentation master file, created by
-   sphinx-quickstart on Wed Sep  7 10:54:49 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to Quantiacs Python's documentation!
+Welcome to Quantiacs Python's user guide!
 ============================================
 
 Contents:
@@ -11,7 +6,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-
+   packages
+   ts_structure
+   market_position_trading
 
 Indices and tables
 ==================

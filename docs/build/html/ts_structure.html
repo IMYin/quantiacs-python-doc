@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Trading System Structure &#8212; Quantiacs Python 2.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Quantiacs Python 2.2 documentation" href="index.html" />
+    <link rel="next" title="Market Positions &amp; Trading" href="market_position_trading.html" />
+    <link rel="prev" title="Support Packages" href="packages.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="market_position_trading.html" title="Market Positions &amp; Trading"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="packages.html" title="Support Packages"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Quantiacs Python 2.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="trading-system-structure">
+<h1>Trading System Structure<a class="headerlink" href="#trading-system-structure" title="Permalink to this headline">¶</a></h1>
+<p>In Python, you have to define two functions: <code class="docutils literal"><span class="pre">mySettings</span></code> and <code class="docutils literal"><span class="pre">myTradingSystem</span></code>. The toolbox relies on these two functions to run your trading system. <code class="docutils literal"><span class="pre">mySettings</span></code> contains the settings structure which stores all relevant information for the trading system. The toolbox allows for flexible data definitions, where you can request OPEN, HIGH, LOW, CLOSE, or VOL data for your system. A typical function definition is shown below:</p>
+<dl class="function">
+<dt>
+<code class="descname">def myTradingSystem(DATE, HIGH, CLOSE, VOL, exposure, equity, settings)</code></dt>
+<dd></dd></dl>
+
+<p>Your <code class="docutils literal"><span class="pre">myTradingSystem</span></code> function will be called each day of the backtesting period with the most recent data as arguments. The only requirements of <code class="docutils literal"><span class="pre">myTradingSystem</span></code> is to return an array of your trading system’s market positions for the next day and the settings data struct. Market positions, <code class="docutils literal"><span class="pre">p</span></code>, is just an array of numbers [0 1 -1 …] that represents the trading positions you want to take (e.g., no position, buy, sell).</p>
+<div class="section" id="arguments-parameters">
+<h2>Arguments/Parameters<a class="headerlink" href="#arguments-parameters" title="Permalink to this headline">¶</a></h2>
+<p>Data can be requested for your trading system through the arguments of the function definition. The <code class="docutils literal"><span class="pre">myTradingSystem</span></code> function isn’t required to call any arguments, the example above is just a representation of various values that can be called.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="61%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Description</th>
+<th class="head">Dimensions
+(rows x columns)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>DATE</strong></td>
+<td>DATE,a date integer in the
+format YYYYMMDD</td>
+<td>Lookback x 1</td>
+</tr>
+<tr class="row-odd"><td><strong>OPEN</strong></td>
+<td>the first price of the session</td>
+<td>Lookback x
+# of Markets</td>
+</tr>
+<tr class="row-even"><td><strong>HIGH</strong></td>
+<td>the highest price of the session</td>
+<td>Lookback x
+# of Markets</td>
+</tr>
+<tr class="row-odd"><td><strong>LOW</strong></td>
+<td>the lowest price of the session</td>
+<td>Lookback x
+# of Markets</td>
+</tr>
+<tr class="row-even"><td><strong>CLOSE</strong></td>
+<td>the last price of the session</td>
+<td>Lookback x
+# of Markets</td>
+</tr>
+<tr class="row-odd"><td><strong>VOL</strong></td>
+<td>number of stocks/contracts
+traded per session</td>
+<td>Lookback x
+# of Markets</td>
+</tr>
+<tr class="row-even"><td><strong>exposure</strong></td>
+<td>the realized quantities of your trading system,
+or all the trading positions you take</td>
+<td>Lookback x
+# of Markets</td>
+</tr>
+<tr class="row-odd"><td><strong>equity</strong></td>
+<td>cumulative trading performance in each market,
+reflects gains and losses</td>
+<td>Lookback x
+# of Markets</td>
+</tr>
+<tr class="row-even"><td><strong>OI, R,
+RINFO</strong></td>
+<td>Also available to be called as parameters,
+described in more detail under Market Data</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>The data is structured with the most recent information in the last index or row. Where <strong>lookback</strong> is simply how many historical data points you want to load in each iteration of your trading system. Given the data is daily, lookback represents the maximum number of days of market data you want to have loaded. Now the two parameters that aren’t explicitly related to market data are <strong>exposure</strong> and <strong>equity</strong>. These two relate to trading in your simulated broker account. Whenever you make a trading position, that’s recorded in <strong>exposure</strong>. And whatever the market result of your trading position is, is then recorded in <strong>equity</strong>. Or simply put: <strong>equity</strong> is what you made with each market over your <strong>lookback</strong> period.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Trading System Structure</a><ul>
+<li><a class="reference internal" href="#arguments-parameters">Arguments/Parameters</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="packages.html"
+                        title="previous chapter">Support Packages</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="market_position_trading.html"
+                        title="next chapter">Market Positions &amp; Trading</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ts_structure.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="market_position_trading.html" title="Market Positions &amp; Trading"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="packages.html" title="Support Packages"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Quantiacs Python 2.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Quantiacs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
