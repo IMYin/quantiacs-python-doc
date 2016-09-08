@@ -137,11 +137,12 @@ html_theme_options = {
     "sidebarlinkcolor": "#3FB7E9",
     "footerbgcolor": "#3FB7E9",
     "footertextcolor": "white",
-    "relbarbgcolor": "#3FB7E9",
+    "relbarbgcolor": "#233136",
     "bgcolor": "white",
     "linkcolor": "#3FB7E9",
     "headtextcolor": "#3FB7E9",
     "codebgcolor": "#b3e6ff",
+    "textcolor": "#233136"
 }
 
 
