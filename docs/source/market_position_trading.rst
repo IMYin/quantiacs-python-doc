@@ -11,7 +11,7 @@ A unique attribute of the Quantiacs toolbox is the use of market exposure rather
 | p < 0  | you are invested short in asset i with weight p |
 +--------+-------------------------------------------------+
 
-Below is a code example in Python::
+Below is a code example in Python:::
 
 	settings['markets'] =  ['F_GC', 'F_ES']
 	% your trading algorithm
