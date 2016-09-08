@@ -1,5 +1,5 @@
 # quantiacs-python-doc
-Documentation for Quantiacs Python.
+Documentation for Quantiacs Python Toolbox.
 
 For the lastest version of documentation, please visit [Quantiacs Python Toolbox documentation] (http://quantiacs-python-documentation.readthedocs.io/en/latest/index.html).
 
