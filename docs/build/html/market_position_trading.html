@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Quantiacs Python 2.2 documentation" href="index.html" />
+    <link rel="next" title="Settings" href="settings.html" />
     <link rel="prev" title="Trading System Structure" href="ts_structure.html" /> 
   </head>
   <body role="document">
@@ -34,6 +35,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="ts_structure.html" title="Trading System Structure"
              accesskey="P">previous</a> |</li>
@@ -56,9 +60,9 @@
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>p = 0</td>
-<td>you don’t hold asset i in your portfolio</td>
+<td>you don&#8217;t hold asset i in your portfolio</td>
 </tr>
-<tr class="row-even"><td>p &gt; =0</td>
+<tr class="row-even"><td>p &gt;= 0</td>
 <td>you are invested long in asset i with weight p</td>
 </tr>
 <tr class="row-odd"><td>p &lt; 0</td>
@@ -66,13 +70,13 @@
 </tr>
 </tbody>
 </table>
-<p>Below is a code example in Matlab:</p>
+<p>Below is a code example in Python:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;markets&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;F_GC&#39;</span><span class="p">,</span> <span class="s1">&#39;F_ES&#39;</span><span class="p">]</span>
 <span class="o">%</span> <span class="n">your</span> <span class="n">trading</span> <span class="n">algorithm</span>
 <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Here&#8217;s an example, let’s say your capital is set to $1,000,000 in settings, and you decide to buy Gold (F_GC) and sell the S&amp;P 500 (F_ES). Let’s say you set your <code class="docutils literal"><span class="pre">p</span></code> vector to 2.4 in the market column representing Gold and to -1.2 for S&amp;P 500, and take no other positions. Then the system would take your $1 million capital, and allocate it proportionally to the market exposure you just set above. In other words, 2x the capital would go towards going long Gold as it would short the S&amp;P 500. Your market exposure in Gold would become 2.4/3.6 * 10^6 = $666,667 and our negative short position in S&amp;P 500 would become 1.2/3.6 * 10^6 = $333,333. Then whatever your returns are the next day, your balance and market exposure would adjust accordingly (assuming the positions remained the same at 2.4 and 1.2). This representation of market exposure isn’t 100% accurate of the real world, where you would have to buy and sell discrete amounts of contracts, but for large balances it should average out to roughly the same performance.</p>
+<p>Here&#8217;s an example, let&#8217;s say your capital is set to $1,000,000 in settings, and you decide to buy Gold (F_GC) and sell the S&amp;P 500 (F_ES). Let&#8217;s say you set your <code class="docutils literal"><span class="pre">p</span></code> vector to 2.4 in the market column representing Gold and to -1.2 for S&amp;P 500, and take no other positions. Then the system would take your $1 million capital, and allocate it proportionally to the market exposure you just set above. In other words, 2x the capital would go towards going long Gold as it would short the S&amp;P 500. Your market exposure in Gold would become 2.4/3.6 * 10^6 = $666,667 and our negative short position in S&amp;P 500 would become 1.2/3.6 * 10^6 = $333,333. Then whatever your returns are the next day, your balance and market exposure would adjust accordingly (assuming the positions remained the same at 2.4 and 1.2). This representation of market exposure isn&#8217;t 100% accurate of the real world, where you would have to buy and sell discrete amounts of contracts, but for large balances it should average out to roughly the same performance.</p>
 <div class="figure" id="id1">
 <a class="reference internal image-reference" href="_images/alloc.png"><img alt="_images/alloc.png" src="_images/alloc.png" style="width: 562.5px; height: 337.5px;" /></a>
 <p class="caption"><span class="caption-text">Allocation of markets.</span></p>
@@ -86,16 +90,15 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/quantiacs-logo.png" alt="Logo"/>
+            </a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="ts_structure.html"
                         title="previous chapter">Trading System Structure</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/market_position_trading.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="next chapter">Settings</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -116,6 +119,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >next</a> |</li>
         <li class="right" >
           <a href="ts_structure.html" title="Trading System Structure"
              >previous</a> |</li>

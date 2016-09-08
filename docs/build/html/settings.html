@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Settings &#8212; Quantiacs Python 2.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Quantiacs Python 2.2 documentation" href="index.html" />
+    <link rel="next" title="Evaluating Your System" href="evaluate_system.html" />
+    <link rel="prev" title="Market Positions &amp; Trading" href="market_position_trading.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="evaluate_system.html" title="Evaluating Your System"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="market_position_trading.html" title="Market Positions &amp; Trading"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Quantiacs Python 2.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="settings">
+<h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
+<p>Settings contain your environment variables and are open to being defined and extended with additional fields being added to the settings struct.</p>
+<p>Below is an example of configuring settings:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mySettings</span><span class="p">():</span>
+<span class="sd">&#39;&#39;&#39; Define your trading system settings here &#39;&#39;&#39;</span>
+
+    <span class="n">settings</span><span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;markets&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CASH&#39;</span><span class="p">,</span><span class="s1">&#39;F_AD&#39;</span><span class="p">,</span> <span class="s1">&#39;F_BO&#39;</span><span class="p">,</span> <span class="s1">&#39;F_BP&#39;</span><span class="p">,</span> <span class="s1">&#39;F_C&#39;</span><span class="p">,</span> <span class="s1">&#39;F_CC&#39;</span><span class="p">,</span> <span class="s1">&#39;F_CD&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;F_CL&#39;</span><span class="p">,</span> <span class="s1">&#39;F_CT&#39;</span><span class="p">,</span> <span class="s1">&#39;F_DX&#39;</span><span class="p">,</span> <span class="s1">&#39;F_EC&#39;</span><span class="p">,</span> <span class="s1">&#39;F_ED&#39;</span><span class="p">,</span> <span class="s1">&#39;F_ES&#39;</span><span class="p">,</span> <span class="s1">&#39;F_FC&#39;</span><span class="p">,</span><span class="s1">&#39;F_FV&#39;</span><span class="p">,</span> <span class="s1">&#39;F_GC&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;F_HG&#39;</span><span class="p">,</span> <span class="s1">&#39;F_HO&#39;</span><span class="p">,</span> <span class="s1">&#39;F_JY&#39;</span><span class="p">,</span> <span class="s1">&#39;F_KC&#39;</span><span class="p">,</span> <span class="s1">&#39;F_LB&#39;</span><span class="p">,</span> <span class="s1">&#39;F_LC&#39;</span><span class="p">,</span> <span class="s1">&#39;F_LN&#39;</span><span class="p">,</span> <span class="s1">&#39;F_MD&#39;</span><span class="p">,</span> <span class="s1">&#39;F_MP&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;F_NG&#39;</span><span class="p">,</span> <span class="s1">&#39;F_NQ&#39;</span><span class="p">,</span> <span class="s1">&#39;F_NR&#39;</span><span class="p">,</span> <span class="s1">&#39;F_O&#39;</span><span class="p">,</span> <span class="s1">&#39;F_OJ&#39;</span><span class="p">,</span> <span class="s1">&#39;F_PA&#39;</span><span class="p">,</span> <span class="s1">&#39;F_PL&#39;</span><span class="p">,</span> <span class="s1">&#39;F_RB&#39;</span><span class="p">,</span> <span class="s1">&#39;F_RU&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;F_S&#39;</span><span class="p">,</span><span class="s1">&#39;F_SB&#39;</span><span class="p">,</span> <span class="s1">&#39;F_SF&#39;</span><span class="p">,</span> <span class="s1">&#39;F_SI&#39;</span><span class="p">,</span> <span class="s1">&#39;F_SM&#39;</span><span class="p">,</span> <span class="s1">&#39;F_TU&#39;</span><span class="p">,</span> <span class="s1">&#39;F_TY&#39;</span><span class="p">,</span> <span class="s1">&#39;F_US&#39;</span><span class="p">,</span><span class="s1">&#39;F_W&#39;</span><span class="p">,</span> <span class="s1">&#39;F_XX&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;F_YM&#39;</span><span class="p">]</span>
+    <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;beginInSample&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;20120506&#39;</span>
+    <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;endInSample&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;20150506&#39;</span>
+    <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;lookback&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mi">504</span>
+    <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;budget&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+    <span class="n">settings</span><span class="p">[</span><span class="s1">&#39;slippage&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mf">0.05</span>
+
+    <span class="k">return</span> <span class="n">settings</span>
+</pre></div>
+</div>
+<div class="section" id="default-settings">
+<h2>Default Settings<a class="headerlink" href="#default-settings" title="Permalink to this headline">¶</a></h2>
+<p>Your algorithm will always be called with the following settings by default unless you define them otherwise::</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>settings[&#39;beginInSample&#39;] = &#39;19900101&#39;
+settings[&#39;lookback&#39;]      = 504
+settings[‘budget&#39;]        = 1000000
+settings[‘slippage&#39;]      = 0.05
+</pre></div>
+</div>
+<p>Note that you aren&#8217;t required to define any settings field, but for most trading systems <strong>lookback</strong> will likely need to be changed from 1 if your trading system needs any historical market data. Leaving <strong>lookback</strong> at the default value while attempting to access market prices further back than the previous day will result in an error.</p>
+</div>
+<div class="section" id="markets">
+<h2>Markets<a class="headerlink" href="#markets" title="Permalink to this headline">¶</a></h2>
+<p>Currently Quantiacs trades in both Stock and Futures markets. A Future is a contract to deliver a specified amount of the underlying product at a certain date. You can learn more about Futures from the video below.</p>
+<iframe width="712" height="400" src="https://www.youtube.com/embed/5zKq4GZfnjs" frameborder="0" allowfullscreen></iframe><p>Trading in both Stocks and Futures allows for a great degree of diversification and helps you to generate a trading system that is successful in many market environments. You can find the full list of available markets on the <a class="reference external" href="https://quantiacs.com/For-Quants/GetStarted/Markets.aspx">Markets</a> page.</p>
+<p>In general, you can find the contract unit of any futures by looking at the <a class="reference external" href="http://www.barchart.com/futures/specifications.php">Futures Contracts Specifications</a>.</p>
+<p>And finding the contract unit allows you to relate a futures contract to their commonly found prices such as on Yahoo Finance.</p>
+<p>Another unique aspect of futures contracts that doesn&#8217;t apply to stocks, is an expiration date on each contract. The only real difference in your trading data is that the Quantiacs toolbox automatically implements a roll over (see <a class="reference internal" href="#rollover-label"><span class="std std-ref">Roll Overs (R &amp; RINFO)</span></a> section below) whenever a futures contract expires, to make the pricing data the latest and most accurate.</p>
+</div>
+<div class="section" id="market-data">
+<h2>Market Data<a class="headerlink" href="#market-data" title="Permalink to this headline">¶</a></h2>
+<p>Note that Quantiacs market data is not updated in realtime, this means you won&#8217;t be able to do live trading using the toolbox. If a market is not defined for some time period, its values are set to not a number (NaN). If data is missing within the time series (for example due to a holiday), the missing data is replaced by the last known value with zero volume.</p>
+<p>If you want to backtest across every available market, you can get a text file with a string for all of the markets <a class="reference external" href="https://quantiacs.com/Data/markets.txt">here</a>. This makes it easy to copy paste all of the available markets into your settings struct.</p>
+<p>Here&#8217;s an example of what the data looks like for a futures contract:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="10%" />
+<col width="9%" />
+<col width="9%" />
+<col width="4%" />
+<col width="4%" />
+<col width="10%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">F_AD</th>
+<th class="head" colspan="9">Australian Dollar</th>
+</tr>
+<tr class="row-even"><th class="head">DATE</th>
+<th class="head">OPEN</th>
+<th class="head">HIGH</th>
+<th class="head">LOW</th>
+<th class="head">CLOSE</th>
+<th class="head">VOL</th>
+<th class="head">OI</th>
+<th class="head">P</th>
+<th class="head">R</th>
+<th class="head">RINFO</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>19900102</td>
+<td>77300</td>
+<td>77400</td>
+<td>77020</td>
+<td>77020</td>
+<td>125</td>
+<td>2559</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>19900103</td>
+<td>76890</td>
+<td>77030</td>
+<td>76700</td>
+<td>76740</td>
+<td>1495</td>
+<td>3215</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>19900104</td>
+<td>77080</td>
+<td>77610</td>
+<td>77000</td>
+<td>77490</td>
+<td>932</td>
+<td>3122</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>19900105</td>
+<td>77050</td>
+<td>77280</td>
+<td>76980</td>
+<td>76980</td>
+<td>272</td>
+<td>2542</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>19900108</td>
+<td>77280</td>
+<td>77300</td>
+<td>77090</td>
+<td>77200</td>
+<td>177</td>
+<td>2439</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>19900109</td>
+<td>77289</td>
+<td>77370</td>
+<td>77210</td>
+<td>77290</td>
+<td>106</td>
+<td>2379</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>And here&#8217;s what the data fields look like for a stock:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="17%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">AAPL</th>
+<th class="head" colspan="6">(Apple)</th>
+</tr>
+<tr class="row-even"><th class="head">DATE</th>
+<th class="head">OPEN</th>
+<th class="head">HIGH</th>
+<th class="head">LOW</th>
+<th class="head">CLOSE</th>
+<th class="head">VOL</th>
+<th class="head">P</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>20010102</td>
+<td>1.067</td>
+<td>1.0893</td>
+<td>1.0446</td>
+<td>1.0625</td>
+<td>1.12E+08</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>20010103</td>
+<td>1.0357</td>
+<td>1.192</td>
+<td>1.0313</td>
+<td>1.1696</td>
+<td>2.02E+08</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>20010104</td>
+<td>1.2946</td>
+<td>1.3125</td>
+<td>1.2054</td>
+<td>1.2188</td>
+<td>1.84E+08</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>20010105</td>
+<td>1.2098</td>
+<td>1.2411</td>
+<td>1.1473</td>
+<td>1.1696</td>
+<td>1.02E+08</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>20010108</td>
+<td>1.2098</td>
+<td>1.2098</td>
+<td>1.1384</td>
+<td>1.183</td>
+<td>92568000</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>20010109</td>
+<td>1.2009</td>
+<td>1.2589</td>
+<td>1.183</td>
+<td>1.2277</td>
+<td>1.44E+08</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The P column is for backwards compatibility to support the Quantiacs 1.X Toolbox versions. OI represents open interest for futures contracts, and R and RINFO both provide information about futures contracts roll overs (see <a class="reference internal" href="#rollover-label"><span class="std std-ref">Roll Overs (R &amp; RINFO)</span></a> section below).</p>
+</div>
+<div class="section" id="loading-market-data">
+<h2>Loading Market Data<a class="headerlink" href="#loading-market-data" title="Permalink to this headline">¶</a></h2>
+<p>Whenever you run <cite>runts</cite>, it will automatically download the necessary market data. When backtesting across new markets, or a new sample size, the toolbox will automatically download the corresponding market data if it hasn&#8217;t been downloaded before.</p>
+<p>To manually initiate this process, you can use the command <cite>loadData</cite>. You can find a full breakdown of <code class="docutils literal"><span class="pre">loadData</span></code> under <a class="reference internal" href="reference.html#referenc-label"><span class="std std-ref">Reference</span></a> section. The main arguments <cite>loadData</cite> needs are a list of markets you want downloaded, and the time period (sample size) you want downloaded. An example use case would be::</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">quantiacsToolbox</span><span class="o">.</span><span class="n">loadData</span><span class="p">(</span><span class="n">marketList</span> <span class="o">=</span> <span class="n">allMarkets</span><span class="p">,</span> <span class="n">dataToLoad</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">,</span><span class="s1">&#39;OPEN&#39;</span><span class="p">,</span><span class="s1">&#39;CLOSE&#39;</span><span class="p">],</span> <span class="n">beginInSample</span> <span class="o">=</span> <span class="s1">&#39;20150101&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="roll-overs-r-rinfo">
+<span id="rollover-label"></span><h2>Roll Overs (R &amp; RINFO)<a class="headerlink" href="#roll-overs-r-rinfo" title="Permalink to this headline">¶</a></h2>
+<p>Futures, as opposed to Stocks, come in single contracts with an expiration (delivery) date. This requires that we treat futures contracts slightly different than stocks in the backtester. Since there is an expiration to the contract, we have to sell the contract before the expiry and buy a different contract (of the same underlying) that expires further in the future (this is called ‘rolling&#8217; a contract).  There are extra costs and uncertainties associated with this.</p>
+<p>Rolling explains why the plot of the prices of the time series (as shown on the website) is not necessarily what you get when you buy and hold that commodity. The differences between the price plot and the trading result are higher for commodities and lower for financial futures, since the cost of carry for a Stock Index Future or a Government Bond is usually very low.</p>
+<p>In the market data files (found in the <em>tickerData</em> folder of the toolbox), R and RINFO columns address roll overs. The data column R contains the roll announcement - the contract maturity of the new contract (i.e. the contract we&#8217;re rolling into) in the format yyyymm. RINFO is the roll difference in the time series data. At a roll we back-adjust the data in the lookback window by RINFO to keep the time series data steady. We also adjust the performance by the roll amount since the price difference between the two contracts at the same time is not a win or a loss that can be traded. So our raw data are not continuous contracts, but single contracts.</p>
+<p>Here is an example of rollover data from F_AD.txt:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="23%" />
+<col width="23%" />
+<col width="15%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">DATE</th>
+<th class="head">OPEN</th>
+<th class="head">CLOSE</th>
+<th class="head">R</th>
+<th class="head">RINFO</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>20150902</td>
+<td>70120.0000</td>
+<td>70250.0000</td>
+<td>0</td>
+<td>0.0000</td>
+</tr>
+<tr class="row-odd"><td>20150903</td>
+<td>70360.0000</td>
+<td>70100.0000</td>
+<td>0</td>
+<td>0.0000</td>
+</tr>
+<tr class="row-even"><td>20150904</td>
+<td>70080.0000</td>
+<td>69230.0000</td>
+<td>201512</td>
+<td>0.0000</td>
+</tr>
+<tr class="row-odd"><td>20150908</td>
+<td>68820.0000</td>
+<td>69930.0000</td>
+<td>0</td>
+<td>-290.0000</td>
+</tr>
+<tr class="row-even"><td>20150909</td>
+<td>69840.0000</td>
+<td>69840.0000</td>
+<td>0</td>
+<td>0.0000</td>
+</tr>
+<tr class="row-odd"><td>20150910</td>
+<td>69500.0000</td>
+<td>70480.0000</td>
+<td>0</td>
+<td>0.0000</td>
+</tr>
+</tbody>
+</table>
+<p>Roll overs are all done automatically in runts, and because of this on-the-fly rolling method you always get:</p>
+<ol class="arabic simple">
+<li>the true Dollar value of the commodity at that point in time - at least for the last data point, i.e. the last row of the CLOSE matrix.</li>
+<li>A steady course with no disruptions/gaps because of rolls.</li>
+</ol>
+</div>
+<div class="section" id="why-only-daily-data">
+<h2>Why Only Daily Data<a class="headerlink" href="#why-only-daily-data" title="Permalink to this headline">¶</a></h2>
+<p>Quantiacs only supports daily historical market data for several reasons. The first is that our investors want scalable strategies that can manage hundreds of millions rather than just hundreds of thousands. As limit orders can only be filled during those times of the session, in which the market trades below the limit, we&#8217;d only have a fraction of the session to execute these orders. Naturally this leads to a much lower capacity of the trading strategy. Additionally, if we&#8217;d allow limit orders we would have to account for partial fills in the backtest, which could make the backtest results no longer representative in extreme cases.</p>
+<p>Secondly, we are a Commodity Trading Advisor registered with the NFA, and we have to comply with the rules of our regulators. We have to protect our institutional clients from front-running, arbitrage and other potentially criminal activities. It&#8217;s impossible to protect investors trading third party strategies on 1 minute bars. On end of day data we can ensure their protection from criminal activities.</p>
+<p>We have to separate the strategic part of the trading system (its logic of when to buy what) strictly from the actual order execution and risk management, that&#8217;s handled by us (and might actually involve the use of leverage, limit orders, stop loss orders etc.).</p>
+</div>
+<div class="section" id="sample-size">
+<h2>Sample Size<a class="headerlink" href="#sample-size" title="Permalink to this headline">¶</a></h2>
+<p>By default, the system will load market data for all dates available, so the backtest will run across the entire 25+ years of historical market data. Alternatively, you have the ability to define the specific start and end dates for your backtests through <cite>beginInSample</cite> and <cite>endInSample</cite> respectively. Both fields follow the format of YYYYMMDD.</p>
+</div>
+<div class="section" id="budget">
+<h2>Budget<a class="headerlink" href="#budget" title="Permalink to this headline">¶</a></h2>
+<p>Although you can change your budget to any size, it&#8217;s good to test it at $1 million because that would provide it with the proper scale to effectively trade futures in the real world. Moreover, good trading strategies will show similar results whether they&#8217;re traded at $1 million or $10 million.</p>
+<p>Our backtester, no matter the budget allocated, assumes the ability to purchase non-discrete or fractional amounts of contracts. In reality this is not possible, however, it allows the trading strategy to be evaluated without significant deviation caused by budgets. Since futures generally have a very large contract size, there would be a big difference between real and intended allocations at lower capital sizes.</p>
+<p>For example, if you attempted to manage your algorithm with 500k and had the following target allocation:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="20%" />
+<col width="32%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Market</th>
+<th class="head">Allocation</th>
+<th class="head">Cash in market</th>
+<th class="head">Price of 1 contract</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>F_ES</td>
+<td>0.5</td>
+<td>0.5 * 500k = 250k</td>
+<td>104k</td>
+</tr>
+<tr class="row-odd"><td>F_SI</td>
+<td>0.2</td>
+<td>0.2 * 500k = 250k</td>
+<td>79k</td>
+</tr>
+<tr class="row-even"><td>F_GC</td>
+<td>0.1</td>
+<td>0.1 * 500k = 50k</td>
+<td>118k</td>
+</tr>
+<tr class="row-odd"><td>F_TY</td>
+<td>0.1</td>
+<td>0.1 * 500k = 50k</td>
+<td>126k</td>
+</tr>
+<tr class="row-even"><td>F_FV</td>
+<td>0.1</td>
+<td>0.1 * 500k = 50k</td>
+<td>119k</td>
+</tr>
+</tbody>
+</table>
+<p>Again because of the large contract sizes of futures (and the fact that it&#8217;s impossible to buy half contracts) a naïve discrete representation would give you 2 contracts F_ES, 1 contract F_SI, and ignore the rest. Thus the real exposure would be:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="44%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Market</th>
+<th class="head">Allocation</th>
+<th class="head">Price of 1 contract</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>F_ES</td>
+<td>2 * 104 / 500 = 0.416</td>
+<td>104k</td>
+</tr>
+<tr class="row-odd"><td>F_SI</td>
+<td>1 * 79 / 500 = 0.158</td>
+<td>79k</td>
+</tr>
+<tr class="row-even"><td>F_GC</td>
+<td>0</td>
+<td>118k</td>
+</tr>
+<tr class="row-odd"><td>F_TY</td>
+<td>0</td>
+<td>126k</td>
+</tr>
+<tr class="row-even"><td>F_FV</td>
+<td>0</td>
+<td>119k</td>
+</tr>
+<tr class="row-odd"><td>CASH</td>
+<td>0.426</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>Realistically, any institution would put down at least $1 million to trade futures with. So our non-discrete trading positions turn out to be a better representation of real life trading situations</p>
+</div>
+<div class="section" id="trading-costs">
+<h2>Trading Costs<a class="headerlink" href="#trading-costs" title="Permalink to this headline">¶</a></h2>
+<p>When writing your trading system, all trading costs are based off <strong>slippage</strong>, for example setting it to 0 will test your system without any trading costs. Trading costs can have a significant effect on the performance of a trading algorithm. The two main contributors to trading costs are commissions and slippage. Commissions are fees charged by the exchange and the broker. You cannot avoid them. In most cases they are quite low compared to amount of your trade. Slippage is the price at which you expected or placed your order and the price at which your order was actually filled. Factors like the liquidity and the volatility contribute to the slippage as well as the volume you want to trade. A good estimate for slippage is the daily range, therefore slippage can be estimated ex post.</p>
+<p>In our backtesting toolbox we use a very simple yet conservative approach to estimate slippage and commissions: We take 5% of the daily range as the trading costs. This computes as (HIGH-LOW) * 0.05. This covers the assumption, that you&#8217;ll have more slippage on days with larger market moves, than on days with smaller. This approximation might overestimate the real trading costs. In this case, it is better to overestimate than underestimate.</p>
+<div class="section" id="slippage">
+<h3>Slippage<a class="headerlink" href="#slippage" title="Permalink to this headline">¶</a></h3>
+<p>Slippage is the difference between the price at which you expected or placed your order and the price at which your order was actually filled. The following factors contribute to the slippage. The liquidity of the market: Higher liquidity results in lower slippage. In very liquid markets your positions are filled almost immediately. In an illiquid market, the order execution could cost significant time, in this time the price might move against you. You will notice that the impact of slippage on your trading system depends on how frequently you trade and how much return each trade generates. If you trade often and have trades with smaller returns per trade, slippage will be an issue. If you don&#8217;t change the size of your exposure often, slippage will be almost irrelevant for your results. These factors contribute to slippage:</p>
+<ul class="simple">
+<li>Your trading volume: The more shares you want to buy, the longer the order execution takes. The longer the order execution takes, the further the fill price might be.</li>
+<li>The bid-ask spread: This is the difference in the price quoted for an immediate buy (ask) and the price quoted for an immediate sale (bid). To get an order filled, you usually have to cross the spread. This is typically on the far side for you. If you want to sell 100 shares of Stock X you need to find a buyer for them. If there is one in the orderbook you will find him at the other side of the spread. Large bid/ask spreads lead to a high slippage.</li>
+<li>The volatility of the market: For the sake of simplicity, let&#8217;s define volatility as the average change of price per unit of time. Thus, if the volatility is high, it&#8217;s evident that slippage will be higher in volatile markets since prices tend to move more while your order is executed.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="extensibility-and-custom-fields">
+<h2>Extensibility and Custom Fields<a class="headerlink" href="#extensibility-and-custom-fields" title="Permalink to this headline">¶</a></h2>
+<p>The best part of settings is the ability to add custom fields to the settings struct.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">settings</span><span class="p">[</span><span class="s1">&#39;anotherField&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">some_value</span>
+</pre></div>
+</div>
+<p>The only way to retain custom data from your trading system across multiple instances is the settings struct. Let&#8217;s say you build a custom indicator, and you want to save the values it generates and make them available to your trading system. Remember that your trading system is just one big function that is called again for each new day of market data. In other words, nothing within your trading system (except the market positions) is saved across multiple dates. Settings are an exception to this rule, and they remain intact during the entire backtest. This allows you to record custom values and datatypes by adding your own fields to settings.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/quantiacs-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Settings</a><ul>
+<li><a class="reference internal" href="#default-settings">Default Settings</a></li>
+<li><a class="reference internal" href="#markets">Markets</a></li>
+<li><a class="reference internal" href="#market-data">Market Data</a></li>
+<li><a class="reference internal" href="#loading-market-data">Loading Market Data</a></li>
+<li><a class="reference internal" href="#roll-overs-r-rinfo">Roll Overs (R &amp; RINFO)</a></li>
+<li><a class="reference internal" href="#why-only-daily-data">Why Only Daily Data</a></li>
+<li><a class="reference internal" href="#sample-size">Sample Size</a></li>
+<li><a class="reference internal" href="#budget">Budget</a></li>
+<li><a class="reference internal" href="#trading-costs">Trading Costs</a><ul>
+<li><a class="reference internal" href="#slippage">Slippage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#extensibility-and-custom-fields">Extensibility and Custom Fields</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="market_position_trading.html"
+                        title="previous chapter">Market Positions &amp; Trading</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="evaluate_system.html"
+                        title="next chapter">Evaluating Your System</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="evaluate_system.html" title="Evaluating Your System"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="market_position_trading.html" title="Market Positions &amp; Trading"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Quantiacs Python 2.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Quantiacs.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
