@@ -1,4 +1,4 @@
-.. _referenc-label:
+.. _reference-label:
 
 Reference
 =========
@@ -70,7 +70,7 @@ Prepares and returns market data for specified markets. Prepares and returns rel
 *refresh* (bool): boolean value determining whether or not to update the local data from the Quantiacs server.
 
 *beginInSample* (str): a str in the format of YYYYMMDD defining the
-begining of the time series 
+begining of the time series
 *endInSample* (str): a str in the format of YYYYMMDD defining the end of the time series
 
 **Returns**:
@@ -85,11 +85,17 @@ plotts
 Plots equity curve and calculates trading system statistics
 
 **Args**:
-*equity* (list): list of equity of evaluated trading system.
-*mEquity* (list): list of equity of each market over the trading days.
-*exposure* (list): list of positions over the trading days.
-*settings* (dict): list of settings.
-*DATE* (list): list of dates corresponding to entries in equity.
+
+*equity* (list): list of equity of evaluated trading system
+
+*mEquity* (list): list of equity of each market over the trading days
+
+*exposure* (list): list of positions over the trading days
+
+*settings* (dict): list of settings
+
+
+*DATE* (list): list of dates corresponding to entries in equity
 
 runts
 -----
@@ -101,22 +107,33 @@ Backtests a trading system. Evaluates the trading system function specified in t
 **Args**:
 
 *tsName* (str): Specifies the trading system to be backtested
+
 *plotEquity* (bool, optional): Show the equity curve plot after the evaluation
-*reloadData* (bool,optional): Force reload of market data.
-*state* (dict, optional): State information to resume computation of an existing backtest (for live evaluation on Quantiacs servers). State needs to be of the same form as ret.
+
+*reloadData* (bool,optional): Force reload of market data
+
+*state* (dict, optional): State information to resume computation of an existing backtest (for live evaluation on Quantiacs servers). State needs to be of the same form as ret
 
 **Returns**:
 
 a dict mapping keys to the relevant backesting information: *trading system name, system equity, trading dates, market exposure, market equity, the errorlog, the run time, the system’s statistics, and the evaluation date*.
 
 **keys and description**:
-*‘tsName’* (str): Name of the trading system, same as tsName 
-*‘fundDate’* (int): All dates of the backtest in the format YYYYMMDD 
-*‘fundEquity’* (float): Equity curve for the fund (collection of all markets) ‘returns’ (float): Marketwise returns of trading system 
-*‘marketEquity’* (float): Equity curves for each market in the fund 
-*‘marketExposure’* (float): Collection of the returns p of the trading system function. Equivalent to the percent expsoure of each market in the fund. Normalized between -1 and 1 ‘settings’ (dict): The settings of the trading system as defined in file tsName 
-*‘errorLog’* (list): list of strings with error messages 
-*‘runtime’* (float): Runtime of the evaluation in seconds 
+
+*‘tsName’* (str): Name of the trading system, same as tsName
+
+*‘fundDate’* (int): All dates of the backtest in the format YYYYMMDD
+
+*‘fundEquity’* (float): Equity curve for the fund (collection of all markets) ‘returns’ (float): Marketwise returns of trading system
+
+*‘marketEquity’* (float): Equity curves for each market in the fund
+
+*‘marketExposure’* (float): Collection of the returns p of the trading system function. Equivalent to the percent expsoure of each market in the fund. Normalized between -1 and 1 ‘settings’ (dict): The settings of the trading system as defined in file tsName
+
+*‘errorLog’* (list): list of strings with error messages
+
+*‘runtime’* (float): Runtime of the evaluation in seconds
+
 *‘stats’* (dict): Performance numbers of the backtest ‘evalDate’ (datetime): Last market data present in the backtest
 
 stats
@@ -135,6 +152,7 @@ Calculates trading system statistics. Calculates and returns a dict containing t
 *equityCurve* (list): the equity curve of the evaluated trading system
 
 **Returns**:
+
 *statistics* (dict): a dict mapping keys to corresponding trading system statistics (sharpe ratio, sortino ration, max drawdown...)
 
 submit
@@ -146,10 +164,12 @@ Submits trading system to Quantiacs server.
 
 **Args**:
 
-*tradingSystem* (file, obj, instance): accepts a filepath, a class object, or class instance. 
+*tradingSystem* (file, obj, instance): accepts a filepath, a class object, or class instance.
+
 *tsName* (str): the desired trading system name for display on Quantiacs website.
 
 **Returns**:
+
 returns True if upload was successful, False otherwise.
 
 updateCheck

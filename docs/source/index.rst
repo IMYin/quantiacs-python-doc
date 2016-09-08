@@ -1,5 +1,5 @@
-Welcome to Quantiacs Python's user guide!
-============================================
+Welcome to Quantiacs Python Toolbox user guide!
+===============================================
 
 Table of contents:
 
@@ -16,9 +16,8 @@ Table of contents:
    performance
    reference
 
-Indices and tables
+Indices and Search
 ==================
 
 * :ref:`genindex`
 * :ref:`search`
-
