@@ -9,5 +9,4 @@ The optimizer takes each set of optimization parameters and runs a backtest to r
 
 	emaPeriod = 30 #[20:5:90]#
 
-In the above example, we see that the variable 'emaPeriod' will be tested from 20 to 90 in increments of 5, and will return the performance results from each run. This also allows you to extract any specific dictionary result that's found under Trading Results (see :ref:`tradingresults-label` section).
-
+In the above example, we see that the variable 'emaPeriod' will be tested from 20 to 90 in increments of 5, and will return the performance results from each run. This also allows you to extract any specific dictionary result that is found under Trading Results (see :ref:`tradingresults-label` section).

@@ -1,3 +1,5 @@
+.. _settings-label:
+
 Settings
 ========
 
@@ -43,24 +45,24 @@ Note that you aren't required to define any settings field, but for most trading
 Markets
 -------
 
-Currently Quantiacs trades in both Stock and Futures markets. A Future is a contract to deliver a specified amount of the underlying product at a certain date. You can learn more about Futures from the video below.
+Currently Quantiacs trades in both Stock and Futures markets. A Future is a contract to deliver a specified amount of the underlying product at a certain date. You can learn more about quant trading with Futures from the video below.
 
 .. raw:: html
 
-    <iframe width="712" height="400" src="https://www.youtube.com/embed/5zKq4GZfnjs" frameborder="0" allowfullscreen></iframe>
+    <iframe width="712" height="400" src="https://www.youtube.com/embed/5zKq4GZfnjs" frameborder="1" allowfullscreen></iframe>
 
 
-Trading in both Stocks and Futures allows for a great degree of diversification and helps you to generate a trading system that is successful in many market environments. You can find the full list of available markets on the `Markets`_ page.
+Trading in both Stocks and Futures allows for a great degree of diversification and helps you to generate a trading system that is successful in many market environments. You can find the full list of available markets on Quantiacs' `Markets`_ page.
 
 .. _Markets: https://quantiacs.com/For-Quants/GetStarted/Markets.aspx
 
-In general, you can find the contract unit of any futures by looking at the `Futures Contracts Specifications`_. 
+In general, you can find the contract unit of any futures by looking at the `Futures Contracts Specifications`_. And finding the contract unit allows you to relate a futures contract to their commonly found prices such as on Yahoo Finance.
 
 .. _Futures Contracts Specifications: http://www.barchart.com/futures/specifications.php
 
-And finding the contract unit allows you to relate a futures contract to their commonly found prices such as on Yahoo Finance.
-
 Another unique aspect of futures contracts that doesn't apply to stocks, is an expiration date on each contract. The only real difference in your trading data is that the Quantiacs toolbox automatically implements a roll over (see :ref:`rollover-label` section below) whenever a futures contract expires, to make the pricing data the latest and most accurate.
+
+.. _marketdata-label:
 
 Market Data
 -----------
@@ -71,7 +73,7 @@ If you want to backtest across every available market, you can get a text file w
 
 .. _here: https://quantiacs.com/Data/markets.txt
 
-Here's an example of what the data looks like for a futures contract:
+Here is an example of what the data looks like for a futures contract:
 
 +----------+-------------------+-------+-------+------+------+---+---+-------+
 | F_AD     |             Australian Dollar                                   |
@@ -91,7 +93,7 @@ Here's an example of what the data looks like for a futures contract:
 | 19900109 | 77289   | 77370   | 77210 | 77290 | 106  | 2379 | 0 | 0 | 0     |
 +----------+---------+---------+-------+-------+------+------+---+---+-------+
 
-And here's what the data fields look like for a stock:
+And here is what the data fields look like for a stock:
 
 +------------+--------------------------------------------------------------+
 | AAPL       | (Apple)                                                      |
@@ -128,9 +130,9 @@ The P column is for backwards compatibility to support the Quantiacs 1.X Toolbox
 Loading Market Data
 -------------------
 
-Whenever you run `runts`, it will automatically download the necessary market data. When backtesting across new markets, or a new sample size, the toolbox will automatically download the corresponding market data if it hasn't been downloaded before.
+Whenever you run ``runts``, it will automatically download the necessary market data. When backtesting across new markets, or a new sample size, the toolbox will automatically download the corresponding market data if it hasn't been downloaded before.
 
-To manually initiate this process, you can use the command `loadData`. You can find a full breakdown of ``loadData`` under :ref:`referenc-label` section. The main arguments `loadData` needs are a list of markets you want downloaded, and the time period (sample size) you want downloaded. An example use case would be:
+To manually initiate this process, you can use the command ``loadData``. You can find a full breakdown of ``loadData`` under :ref:`reference-label` section. The main arguments ``loadData`` needs are a list of markets you want downloaded, and the time period (sample size). An example use case would be:
 
 .. code-block:: python
 
@@ -165,9 +167,9 @@ Here is an example of rollover data from F_AD.txt:
 | 20150910 | 69500.0000 | 70480.0000 | 0      | 0.0000    |
 +----------+------------+------------+--------+-----------+
 
-Roll overs are all done automatically in runts, and because of this on-the-fly rolling method you always get:
+Roll overs are all done automatically in ``runts``, and because of this on-the-fly rolling method you always get:
 
-1.  the true Dollar value of the commodity at that point in time - at least for the last data point, i.e. the last row of the CLOSE matrix.
+1.  The true Dollar value of the commodity at that point in time - at least for the last data point, i.e. the last row of the CLOSE matrix.
 2.  A steady course with no disruptions/gaps because of rolls.
 
 Why Only Daily Data
@@ -182,12 +184,12 @@ We have to separate the strategic part of the trading system (its logic of when 
 Sample Size
 -----------
 
-By default, the system will load market data for all dates available, so the backtest will run across the entire 25+ years of historical market data. Alternatively, you have the ability to define the specific start and end dates for your backtests through `beginInSample` and `endInSample` respectively. Both fields follow the format of YYYYMMDD. 
+By default, the system will load market data for all dates available, so the backtest will run across the entire 25+ years of historical market data. Alternatively, you have the ability to define the specific start and end dates for your backtests through `beginInSample` and `endInSample` respectively. Both fields follow the format of YYYYMMDD.
 
 Budget
 ------
 
-Although you can change your budget to any size, it's good to test it at $1 million because that would provide it with the proper scale to effectively trade futures in the real world. Moreover, good trading strategies will show similar results whether they're traded at $1 million or $10 million.
+Although you can change your budget to any size, it is good to test it at $1 million because that would provide it with the proper scale to effectively trade futures in the real world. Moreover, good trading strategies will show similar results whether they're traded at $1 million or $10 million.
 
 Our backtester, no matter the budget allocated, assumes the ability to purchase non-discrete or fractional amounts of contracts. In reality this is not possible, however, it allows the trading strategy to be evaluated without significant deviation caused by budgets. Since futures generally have a very large contract size, there would be a big difference between real and intended allocations at lower capital sizes.
 
@@ -207,7 +209,7 @@ For example, if you attempted to manage your algorithm with 500k and had the fol
 | F_FV   | 0.1        | 0.1 * 500k = 50k  | 119k                |
 +--------+------------+-------------------+---------------------+
 
-Again because of the large contract sizes of futures (and the fact that it's impossible to buy half contracts) a naïve discrete representation would give you 2 contracts F_ES, 1 contract F_SI, and ignore the rest. Thus the real exposure would be:
+Again because of the large contract sizes of futures (and the fact that it is impossible to buy half contracts) a naïve discrete representation would give you 2 contracts F_ES, 1 contract F_SI, and ignore the rest. Thus the real exposure would be:
 
 +--------+-----------------------+---------------------+
 | Market | Allocation            | Price of 1 contract |
@@ -225,14 +227,16 @@ Again because of the large contract sizes of futures (and the fact that it's imp
 | CASH   | 0.426                 |                     |
 +--------+-----------------------+---------------------+
 
-Realistically, any institution would put down at least $1 million to trade futures with. So our non-discrete trading positions turn out to be a better representation of real life trading situations
+Realistically, any institution would put down at least $1 million to trade futures with. So our non-discrete trading positions turn out to be a better representation of real life trading situations.
 
 Trading Costs
 -------------
 
-When writing your trading system, all trading costs are based off **slippage**, for example setting it to 0 will test your system without any trading costs. Trading costs can have a significant effect on the performance of a trading algorithm. The two main contributors to trading costs are commissions and slippage. Commissions are fees charged by the exchange and the broker. You cannot avoid them. In most cases they are quite low compared to amount of your trade. Slippage is the price at which you expected or placed your order and the price at which your order was actually filled. Factors like the liquidity and the volatility contribute to the slippage as well as the volume you want to trade. A good estimate for slippage is the daily range, therefore slippage can be estimated ex post.
+When writing your trading system, all trading costs are based off **slippage** (see :ref:`slippage-label` section below), for example setting it to 0 will test your system without any trading costs. Trading costs can have a significant effect on the performance of a trading algorithm. The two main contributors to trading costs are commissions and slippage. Commissions are fees charged by the exchange and the broker. You cannot avoid them. In most cases they are quite low compared to amount of your trade. Slippage is the price at which you expected or placed your order and the price at which your order was actually filled. Factors like the liquidity and the volatility contribute to the slippage as well as the volume you want to trade. A good estimate for slippage is the daily range, therefore slippage can be estimated ex post.
 
 In our backtesting toolbox we use a very simple yet conservative approach to estimate slippage and commissions: We take 5% of the daily range as the trading costs. This computes as (HIGH-LOW) * 0.05. This covers the assumption, that you'll have more slippage on days with larger market moves, than on days with smaller. This approximation might overestimate the real trading costs. In this case, it is better to overestimate than underestimate.
+
+.. _slippage-label:
 
 Slippage
 ^^^^^^^^
@@ -250,7 +254,6 @@ The best part of settings is the ability to add custom fields to the settings st
 
 .. code-block:: python
 
-    settings['anotherField'] =  some_value       
+    settings['anotherField'] =  some_value
 
 The only way to retain custom data from your trading system across multiple instances is the settings struct. Let's say you build a custom indicator, and you want to save the values it generates and make them available to your trading system. Remember that your trading system is just one big function that is called again for each new day of market data. In other words, nothing within your trading system (except the market positions) is saved across multiple dates. Settings are an exception to this rule, and they remain intact during the entire backtest. This allows you to record custom values and datatypes by adding your own fields to settings.
-

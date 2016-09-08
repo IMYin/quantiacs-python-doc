@@ -140,9 +140,11 @@ html_theme_options = {
     "relbarbgcolor": "#233136",
     "bgcolor": "white",
     "linkcolor": "#3FB7E9",
+    "visitedlinkcolor": "#3F8DE9",
     "headtextcolor": "#3FB7E9",
     "codebgcolor": "#b3e6ff",
-    "textcolor": "#233136"
+    "textcolor": "#233136",
+    "externalrefs": "true"
 }
 
 
