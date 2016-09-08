@@ -8,7 +8,9 @@ Start testing your system by running python command:
 
 ``python path/to/trading_system.py``
 
-The only requirement is to have the following at the end of your python file to make the trading system file self-executable:::
+The only requirement is to have the following at the end of your python file to make the trading system file self-executable.
+
+.. code-block:: python
 
 	# Evaluate trading system defined in current file.
 	if __name__ == '__main__':

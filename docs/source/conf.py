@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Quantiacs Python documentation build configuration file, created by
+# Quantiacs Python Toolbox documentation build configuration file, created by
 # sphinx-quickstart on Wed Sep  7 10:54:49 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -58,7 +58,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Quantiacs Python'
+project = u'Quantiacs Python Toolbox'
 copyright = u'2016, Quantiacs'
 author = u'Quantiacs'
 
@@ -158,7 +158,7 @@ html_theme_options = {
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = u'Quantiacs Python v2.2'
+# html_title = u'Quantiacs Python Toolbox v2.2'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -284,7 +284,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'QuantiacsPython.tex', u'Quantiacs Python Documentation',
+    (master_doc, 'QuantiacsPython.tex', u'Quantiacs Python Toolbox Documentation',
      u'Quantiacs', 'manual'),
 ]
 
@@ -326,7 +326,7 @@ latex_logo = "quantiacs-logo.png"
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'quantiacspython', u'Quantiacs Python Documentation',
+    (master_doc, 'quantiacspython', u'Quantiacs Python Toolbox Documentation',
      [author], 1)
 ]
 
@@ -341,7 +341,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'QuantiacsPython', u'Quantiacs Python Documentation',
+    (master_doc, 'QuantiacsPython', u'Quantiacs Python Toolbox Documentation',
      author, 'QuantiacsPython', 'One line description of project.',
      'Miscellaneous'),
 ]

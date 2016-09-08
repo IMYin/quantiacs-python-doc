@@ -3,7 +3,9 @@ Settings
 
 Settings contain your environment variables and are open to being defined and extended with additional fields being added to the settings struct.
 
-Below is an example of configuring settings::
+Below is an example of configuring settings:
+
+.. code-block:: python
 
     def mySettings():
     ''' Define your trading system settings here '''
@@ -27,12 +29,14 @@ Below is an example of configuring settings::
 Default Settings
 ----------------
 
-Your algorithm will always be called with the following settings by default unless you define them otherwise:::
+Your algorithm will always be called with the following settings by default unless you define them otherwise.
+
+.. code-block:: python
 
     settings['beginInSample'] = '19900101'
     settings['lookback']      = 504
-    settings[‘budget']        = 1000000
-    settings[‘slippage']      = 0.05
+    settings['budget']        = 1000000
+    settings['slippage']      = 0.05
 
 Note that you aren't required to define any settings field, but for most trading systems **lookback** will likely need to be changed from 1 if your trading system needs any historical market data. Leaving **lookback** at the default value while attempting to access market prices further back than the previous day will result in an error.
 
@@ -126,7 +130,9 @@ Loading Market Data
 
 Whenever you run `runts`, it will automatically download the necessary market data. When backtesting across new markets, or a new sample size, the toolbox will automatically download the corresponding market data if it hasn't been downloaded before.
 
-To manually initiate this process, you can use the command `loadData`. You can find a full breakdown of ``loadData`` under :ref:`referenc-label` section. The main arguments `loadData` needs are a list of markets you want downloaded, and the time period (sample size) you want downloaded. An example use case would be:::
+To manually initiate this process, you can use the command `loadData`. You can find a full breakdown of ``loadData`` under :ref:`referenc-label` section. The main arguments `loadData` needs are a list of markets you want downloaded, and the time period (sample size) you want downloaded. An example use case would be:
+
+.. code-block:: python
 
     quantiacsToolbox.loadData(marketList = allMarkets, dataToLoad = ['DATE','OPEN','CLOSE'], beginInSample = '20150101')
 
@@ -240,7 +246,9 @@ Slippage is the difference between the price at which you expected or placed you
 Extensibility and Custom Fields
 -------------------------------
 
-The best part of settings is the ability to add custom fields to the settings struct.::
+The best part of settings is the ability to add custom fields to the settings struct.
+
+.. code-block:: python
 
     settings['anotherField'] =  some_value       
 
