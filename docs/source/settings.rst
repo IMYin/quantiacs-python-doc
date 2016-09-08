@@ -128,7 +128,7 @@ The P column is for backwards compatibility to support the Quantiacs 1.X Toolbox
 Loading Market Data
 -------------------
 
-Whenever you run `runts`, it will automatically download the necessary market data. When backtesting across new markets, or a new sample size, the toolbox will automatically download the corresponding market data if it hasn't been downloaded before.
+Whenever you run ``runts``, it will automatically download the necessary market data. When backtesting across new markets, or a new sample size, the toolbox will automatically download the corresponding market data if it hasn't been downloaded before.
 
 To manually initiate this process, you can use the command `loadData`. You can find a full breakdown of ``loadData`` under :ref:`referenc-label` section. The main arguments `loadData` needs are a list of markets you want downloaded, and the time period (sample size) you want downloaded. An example use case would be:
 
