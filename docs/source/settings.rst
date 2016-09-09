@@ -234,7 +234,7 @@ Trading Costs
 
 When writing your trading system, all trading costs are based off **slippage** (see :ref:`slippage-label` section below), for example setting it to 0 will test your system without any trading costs. Trading costs can have a significant effect on the performance of a trading algorithm. The two main contributors to trading costs are commissions and slippage. Commissions are fees charged by the exchange and the broker. You cannot avoid them. In most cases they are quite low compared to amount of your trade. Slippage is the price at which you expected or placed your order and the price at which your order was actually filled. Factors like the liquidity and the volatility contribute to the slippage as well as the volume you want to trade. A good estimate for slippage is the daily range, therefore slippage can be estimated ex post.
 
-In our backtesting toolbox we use a very simple yet conservative approach to estimate slippage and commissions: We take 5% of the daily range as the trading costs. This computes as (HIGH-LOW) * 0.05. This covers the assumption, that you'll have more slippage on days with larger market moves, than on days with smaller. This approximation might overestimate the real trading costs. In this case, it is better to overestimate than underestimate.
+In our backtesting toolbox we use a very simple yet conservative approach to estimate slippage and commissions: We take 5% of the daily range as the trading costs. This computes as (HIGH - LOW) * 0.05. This covers the assumption, that you'll have more slippage on days with larger market moves, than on days with smaller. This approximation might overestimate the real trading costs. In this case, it is better to overestimate than underestimate.
 
 .. _slippage-label:
 
